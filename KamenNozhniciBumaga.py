@@ -1,10 +1,6 @@
 from random import *
  
 
-
-#Камень - 1
-#Ножницы - 2
-#Бумага - 3
 c=0
 d=0
 e=0
@@ -27,36 +23,39 @@ while True:
             f=3
         else:
             print("Ошибка, выбери число от 1 до 3!!!")
-
+            break  
 #Бот выбирает рандомный предмет
-KNB=["Камень","Ножницы","Бумага"]
-a=randint(1,3) 
-print("Бот выбрал",KNB[a])
+        KNB=["Камень","Ножницы","Бумага"]
+        a=randint(1,2)
+        print("Бот выбрал:",KNB[a])
+        if a==1:
+          e=1
+        if a==2:
+          e=2
+        if a==3:
+          e=3
+#Находим победителя
+        if f==e:
+          p=1
+        if f==1 and e==2:
+          p=2
+        if f == 1 and e == 3:
+          p=3
+        if f == 2 and e == 1:
+          p=3
+        if f == 2 and e == 3:
+          p=2   
+        if f == 3 and e == 1:
+          p=2
+        if f == 3 and e == 2:
+          p=3
 
-
-#Определение победителя
-while True:
-    if f==e:
-        p=1
-    if f==1 and e==2:
-        p=2
-    if f == 1 and e == 3:
-        p=3
-    if f == 2 and e == 1:
-        p=3
-    if f == 2 and e == 3:
-        p=2   
-    if f == 3 and e == 1:
-        p=2
-    if f == 3 and e == 2:
-        p=3
-
-    if p==1:
-        print("Ничья.")
-    if p==2:
-        print("Ты победил!")
-    if p==3:
-        print("Победил бот.")
+        if p==0:
+          print("Ничья.")
+        if p==1:
+          print("Вы победили!")
+        if p==2:
+          print("Победил бот.")
 
 
 
