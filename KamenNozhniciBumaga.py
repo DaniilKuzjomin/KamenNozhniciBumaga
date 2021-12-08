@@ -1,17 +1,14 @@
 from random import *
  
-
-c=0
-d=0
-e=0
-f=0
-p=0
-
+c=0; d=0; e=0; f=0; p=0
+game=True
+schet=[0]
+schet1=[0]
 
 #Игрок выбирает 1/2/3
-while True:
-    while c==0:
+while game:
         a=int(input("Введи: 1 - Камень, 2 - Ножницы, 3 - Бумага "))
+        print()
         if a==1:
             print("Вы выбрали: Камень")
             f=1
@@ -23,41 +20,50 @@ while True:
             f=3
         else:
             print("Ошибка, выбери число от 1 до 3!!!")
-            break  
+            break     
 #Бот выбирает рандомный предмет
         KNB=["Камень","Ножницы","Бумага"]
-        a=randint(1,2)
-        print("Бот выбрал:",KNB[a])
+        a=randint(1,3)
         if a==1:
+          print("Бот выбрал: Камень")
           e=1
         if a==2:
+          print("Бот выбрал: Ножницы")
           e=2
         if a==3:
+          print("Бот выбрал: Бумага")
           e=3
 #Находим победителя
         if f==e:
-          p=1
-        if f==1 and e==2:
-          p=2
+          p=0
         if f == 1 and e == 3:
-          p=3
-        if f == 2 and e == 1:
-          p=3
-        if f == 2 and e == 3:
-          p=2   
-        if f == 3 and e == 1:
           p=2
+        if f == 2 and e == 1:
+          p=2
+        if f == 2 and e == 3:
+          p=1   
+        if f == 3 and e == 1:
+          p=1
         if f == 3 and e == 2:
-          p=3
-
+          p=2
+#Выводим кто победил и выводим счёт
         if p==0:
           print("Ничья.")
+          print("Твои очки:",schet)
+          print("Очки бота:",schet1)
+          print()
         if p==1:
           print("Вы победили!")
+          schet[0]+=1
+          print("Твои очки",schet)
+          print("Очки бота:",schet1)
+          print()
         if p==2:
           print("Победил бот.")
-
-
+          schet1[0]+=1
+          print("Твои очки:",schet)
+          print("Очки бота:",schet1)
+          print()
 
 
 
